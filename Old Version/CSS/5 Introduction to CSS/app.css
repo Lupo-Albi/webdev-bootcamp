@@ -1,0 +1,23 @@
+h1 {
+    color: rgb(255, 0, 255, 0.4);
+    /* border-color: purple;
+    border-width: 5px;
+    border-style: solid; */
+
+    border: 2px solid blue;
+}
+
+li {
+    color: #555;
+}
+
+h4 {
+    background: rgb(255, 100, 80);
+}
+
+body {
+    background: pink;
+    /* background: url("https://imgprd19.hobbylobby.com/3/c1/f8/3c1f8f79826e7b349d7e7ae09f86682eaf7bac2a/350Wx350H-617126-1018.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+}

@@ -1,0 +1,19 @@
+h3 {
+	color: #5fcffc; /* An Hexadecimal Color */
+	background-color: rgb(89, 151, 0); /* A RGB Color */
+}
+
+button {
+	color: magenta;
+	background-color: cyan;
+}
+
+p {
+	color: olive;
+	/* background is the more powerful version of background-color */
+	background: orange;
+}
+
+body {
+	background-color: #c5e; /*Three digit hex for #CC55EE */
+}

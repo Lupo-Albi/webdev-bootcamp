@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Race Register Form</title>
+</head>
+
+<body>
+    <h1>Race Registration!</h1>
+
+    <form action="">
+        <div>
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" id="firstname" required>
+
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" id="lastname" required>
+        </div>
+
+        <div>
+            <p>Select a Race:</p>
+            <input type="radio" name="race" id="fun run" checked required>
+            <label for="fun run">Fun Run 5k</label>
+            <br>
+            <input type="radio" name="race" id="half marathon" required>
+            <label for="half marathon">Half Marathon</label>
+            <br>
+            <input type="radio" name="race" id="full marathon" required>
+            <label for="full marathon">Full Marathon</label>
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+
+        <div>
+            <label for="age">Select Age Group:</label>
+            <select name="age" id="age">
+                <option value="teen">Under 18</option>
+                <option value="young adult">18-30</option>
+                <option value="adult">30-50</option>
+                <option value="elder">50+</option>
+            </select>
+        </div>
+
+        <button type="submit">Register!</button>
+    </form>
+
+</body>
+
+</html>
+
+<!-- To avoid confusion as to whether a radio button group is required or not, authors are encouraged to specify the attribute on all the radio buttons in a group. Indeed, in general, authors are encouraged to avoid having radio button groups that do not have any initially checked controls in the first place, as this is a state that the user cannot return to, and is therefore generally considered a poor user interface. -->

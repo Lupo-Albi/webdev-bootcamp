@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Demo</title>
+</head>
+
+<body>
+    <h1>Forms Demo</h1>
+
+    <form action="/tacos">
+        <p>
+            <label for="username">Usuário:</label>
+            <input type="text" placeholder="Text" id="username" name="username">
+        </p>
+        <p>
+            <label for="password">Senha:</label>
+            <input type="password" placeholder="senha" id="password" name="password">
+        </p>
+
+        <p>
+            <label for="color">Enter a color:</label>
+            <input type="color" id="color" name="color">
+        </p>
+
+        <p>
+            <!-- Alternative way to label an input (less common) -->
+            <label>
+                Enter a Number:
+                <input type="number" placeholder="Enter a number" name="num" min="1" max="1000" step="2">
+            </label>
+        </p>
+        <!-- this button doesn't submit the form b/c of the "type" attribute -->
+        <button type="button">Regular button (won't submit)</button>
+        <!-- This button submits the form! -->
+        <button type="submit">Submit</button>
+        <!-- So does this one: -->
+        <input type="submit" value="Click Me!">
+    </form>
+    <hr>
+    <!-- Outside of a form, no default behavior -->
+    <button>Not Inside Form</button>
+
+    <h2>Hijacking Searches</h2>
+    <h3>Search Reddit</h3>
+    <form action="https://www.reddit.com/search">
+        <label for="q">Search:</label>
+        <input type="text" name="q" id="q">
+        <button type="submit">Search Reddit</button>
+    </form>
+    <h3>Search Google</h3>
+    <form action="https://www.google.com/search">
+        <label for="q">Search:</label>
+        <input type="text" name="q" id="q">
+        <button type="submit">Search Google</button>
+    </form>
+    <h3>Search Youtube</h3>
+    <form action="https://www.youtube.com/results">
+        <label for="search_query">Search:</label>
+        <input type="text" name="search_query" id="search_query">
+        <button type="submit">Search Youtube</button>
+    </form>
+
+    <h2>More Inputs</h2>
+    <form action="/birds">
+        <input type="checkbox" name="agree_tos" id="agree" checked>
+        <label for="agree">I agree to everything</label>
+
+        <p>
+            <input type="radio" name="size" id="xs" value="XS">
+            <label for="xs">XS</label>
+            <input type="radio" name="size" id="s" value="S">
+            <label for="s">S</label>
+            <input type="radio" name="size" id="m" value="M">
+            <label for="m">M</label>
+        </p>
+
+        <p>
+            <label for="meal">Please Select an Entree:</label>
+            <select name="meal" id="meal">
+                <option value="fish">Fish</option>
+                <option value="veg">Vegetarian</option>
+                <option value="steak">Steak</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="cheese">Amount of Cheese</label>
+            <input type="range" name="cheese_level" id="cheese" min="1" max="100" step="7" value="75">
+        </p>
+
+        <label for="request">Any Special Requests?</label>
+        <br>
+        <textarea name="request" id="request" cols="30" rows="10" placeholder="type something here"></textarea>
+        <button>Submit</button>
+    </form>
+
+    <h2>Validations Demo</h2>
+    <form action="/dummie">
+        <label for="first">Enter First Name:</label>
+        <input type="text" name="first" id="first" required>
+
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" minlength="5" maxlength="20" required>
+
+        <label for="email">Enter your email:</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="url">URL</label>
+        <input type="url" name="url" id="url">
+        <button>Submit</button>
+    </form>
+
+</body>
+
+</html>
