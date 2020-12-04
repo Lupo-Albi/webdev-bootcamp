@@ -17,3 +17,18 @@ for (let num = 1; num <= 10; num++) {
 for (let i = 0; i < 6; i++) {
     console.log("Da ba dee da ba daa");
 }
+
+// Even numbers
+for (let j = 0; j < 21; j += 2) {
+    console.log(j)
+}
+
+// Odd numbers
+for (i = 1; i < 21; i += 2) {
+    console.log(i);
+}
+
+// Counting downwards
+for (j = 100; j >= 0; j -= 10) {
+    console.log(j);
+}
