@@ -2,9 +2,11 @@ let input = prompt("What would you like to do?");
 
 const todos = [];
 
-while (input !== "quit") {
+while (input !== "quit" && input !== "q") {
     if (input === "new") {
-        todos.push(prompt("Enter new todo:"));
+        const newTodo = prompt("Enter new todo:");
+        todos.push(newTodo);
+        console.log(`${newTodo} added to the list!`);
     } else if (input === "list") {
         console.log("********");
         for (let todo of todos) {
@@ -12,9 +14,13 @@ while (input !== "quit") {
         }
         console.log("********");
     } else if (input === "delete") {
-        let deleteIndex = prompt("Enter index of todo to delete:")
-        todos.splice(deleteIndex, 1);
-        console.log("Todo removed.");
+        const deleteIndex = parseInt(prompt("Enter index of todo to delete:"));
+        if (!Number.isNaN(deleteIndex)) {
+            const deleted = todos.splice(deleteIndex, 1);
+            console.log(`Ok, deleted ${deleted[0]}`);
+        } else {
+            console.log('Unknown index');
+        }
     } else {
         console.warn("Invalid input. Try Again.");
     }
