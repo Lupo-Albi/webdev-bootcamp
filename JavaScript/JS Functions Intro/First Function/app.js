@@ -28,3 +28,10 @@ function isSnakeEyes(die1, die2) {
         console.log("Not Snake Eyes!");
     }
 }
+
+function add(x, y) {
+    if (typeof x !== 'number' || typeof y !== 'number') {
+        return false;
+    }
+    return x+y;
+}
