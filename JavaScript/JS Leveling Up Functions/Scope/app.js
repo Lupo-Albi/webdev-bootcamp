@@ -62,3 +62,19 @@ for (let i = 0; i < 5; i++) {
 }
 console.log(msg); // print the msg value of the for block that is avaible outside of the blcok
 console.log(i); // error because i is declared with let so it's not avaiable outside the for loop
+
+// Lexical Scope
+
+function bankRobbery() {
+    const heroes = ['Spiderman', 'Wolverine', 'Black Panther', 'Batwoman'];
+    function cryForHelp() {
+        let color = 'purple'; // color is avaible to inner(), the nested function, but it's not avaible for bankRobbery(), the parent functioon
+        function inner() {
+            for (let hero of heroes) { // heroes is avaible for the functions nested inside bankRobbery(), our parent function
+                console.log(`PLEASE HELP US, ${hero.toUpperCase()}`);
+            }
+        }
+        inner();
+    }
+    cryForHelp();
+}
