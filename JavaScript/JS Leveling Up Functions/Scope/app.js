@@ -44,3 +44,21 @@ function handleAnimal() {
 
 handleAnimal();
 console.log(deadlyAnimal);
+
+// Block Scope
+
+let radius = 8;
+if (radius > 0) {
+    const PI = 3.14159; // not avaiable outside this if block
+    let msg = 'HIII!'; // not avaiable outside this if block
+}
+
+console.log(radius);
+console.log(msg); // print undefined
+
+for (let i = 0; i < 5; i++) {
+    var msg = 'MESSAGE'; // avaiable outside of this for block because we used VAR
+    console.log(msg);
+}
+console.log(msg); // print the msg value of the for block that is avaible outside of the blcok
+console.log(i); // error because i is declared with let so it's not avaiable outside the for loop
