@@ -34,3 +34,13 @@ const movies = [
 const titles = movies.map(function (movie) {
     return movie.title.toUpperCase;
 })
+
+function cleanNames(namesArray) {
+    return namesArray.map(function (name) {
+       return name.trim(); 
+    });
+};
+
+let trimmedNames = cleanNames(["  timothee", "    darth_hater", "sassyfrassy     ", " elton john    "]);
+
+console.log(trimmedNames);
