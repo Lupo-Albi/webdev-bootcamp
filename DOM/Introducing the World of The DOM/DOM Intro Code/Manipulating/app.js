@@ -11,11 +11,12 @@
 //     image.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Male_Silkie.png/460px-Male_Silkie.png'
 // }
 
-const links = document.querySelectorAll('p a');
+// querySelectorAll
+// const links = document.querySelectorAll('p a');
 
-for (let link of links) {
-    console.log(link.href);
-}
+// for (let link of links) {
+//     console.log(link.href);
+// }
 
 const allLinks = document.querySelectorAll('a');
 
