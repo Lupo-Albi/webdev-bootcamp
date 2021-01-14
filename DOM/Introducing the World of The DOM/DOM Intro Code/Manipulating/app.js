@@ -23,3 +23,17 @@ for (let link of allLinks) {
 console.log(window.getComputedStyle(h1).color);
 console.log(window.getComputedStyle(h1).fontFamily);
 console.log(window.getComputedStyle(h1).margin);
+
+// classList - easy way to work with classes
+const h2 = document.querySelector('h2');
+console.log(h2.classList);
+h2.classList.add('purple'); // add new class
+console.log(h2.classList);
+h2.classList.add('border'); // add new class keeping previous classes
+console.log(h2.classList);
+h2.classList.remove('border'); // remove class
+console.log(h2.classList);
+h2.classList.toggle('purple'); // toggle class purple to false
+console.log(h2.classList);
+h2.classList.toggle('purple'); // toggle class purple to true
+console.log(h2.classList);
