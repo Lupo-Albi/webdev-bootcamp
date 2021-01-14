@@ -1,9 +1,9 @@
 const allLinks = document.querySelectorAll('a');
 
 // innerText, textContent and innerHTML
-for (let link of allLinks) {
-    link.innerText = "I'M A LINK!"
-}
+// for (let link of allLinks) {
+//     link.innerText = "I'M A LINK!"
+// }
 
 // Changing styles
 const h1 = document.querySelector('h1');
@@ -66,3 +66,12 @@ h1.insertAdjacentElement('afterend', newH2);
 const h3 = document.createElement('h3');
 h3.innerText = 'I am h3'
 h1.after(h3);
+
+// removeChild
+const firstLi = document.querySelector('li');
+const ul = firstLi.parentElement
+ul.removeChild(firstLi); // == firstLi.parentElement.removeChild(firstLi)
+
+// remove
+const img = document.querySelector('img');
+img.remove();
