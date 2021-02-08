@@ -4,14 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inline Events</title>
+    <title>Event Basics</title>
 </head>
 
 <body>
     <h1>Events</h1>
+
     <!-- NOT RECOMMENDED: Inline HTML Onevent Handlers-->
     <button onclick="alert('you clicked me'); alert('stop clicking')">Click Me!</button>
 
+    <!-- Changing properties using the JS script-->
+    <button id="v2">Click me 2!</button>
+
+    <!-- Add Event Listener (better aproach)-->
+    <button id="v3">Click me 3!</button>
+
+    <button id="tas">Twist and Shout</button>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
