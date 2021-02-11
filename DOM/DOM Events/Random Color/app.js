@@ -2,9 +2,9 @@ const button = document.querySelector('button');
 const h1 = document.querySelector('h1');
 button.addEventListener('click', function() {
     const newColor = makeRandColor();
-    const textColor = `rgb(${newColor})`;
-    document.body.style.backgroundColor = textColor;
-    h1.innerText = textColor;
+    const bgColor = `rgb(${newColor})`;
+    document.body.style.backgroundColor = bgColor;
+    h1.innerText = bgColor;
     h1.style.color = isDarkColor(newColor) ? 'white' : 'black';
 })
 
