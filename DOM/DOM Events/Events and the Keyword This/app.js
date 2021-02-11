@@ -26,6 +26,7 @@ function makeRandColor() {
 }
 
 // The keyword this refers to the element that is waiting for the event to happens
+// the keyword this, when you have it inside a callback that is invoked by some event handler will refer to the element of this event
 function colorize() {
     this.style.backgroundColor = makeRandColor();
     this.style.color = makeRandColor();
