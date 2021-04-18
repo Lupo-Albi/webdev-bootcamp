@@ -1,3 +1,4 @@
+// Callback Requests
 const fakeRequestCallback = (url, success, failure) => {
     const delay = Math.floor(Math.random() * 4500) + 500;
     setTimeout(() => {
@@ -9,19 +10,7 @@ const fakeRequestCallback = (url, success, failure) => {
     }, delay)
 }
 
-const fakeRequestPromise = (url) => {
-    return new Promise((resolve, reject) => {
-        const delay = Math.floor(Math.random() * 4500) + 500
-        setTimeout(() => {
-            if (delay > 4000) {
-                reject('Connection Timeout :(')
-            } else {
-                resolve(`Here is your fake data from ${url}`)
-            }
-        }, delay)
-    })
-}
-
+// Request
 // fakeRequestCallback('books.com/page1', 
 //     function(response) {
 //         console.log("IT WORKED!!!");
@@ -46,25 +35,59 @@ const fakeRequestPromise = (url) => {
 //         console.log("ERROR!!!", err);
 //     })
 
-const request = fakeRequestPromise("yelp.com/api/coffee/page1");
-request
-    .then(() => {
-        console.log("IT WORKED!!!! (page 1)")
-        fakeRequestPromise('yelp.com/api/coffee /page2')
-            .then(() => {
-                console.log("IT WORKED!! (page 2)")
-                fakeRequestPromise('yelp.com/api/coffee/page3')
-                    .then(() => {
-                        console.log("IT WORKED!! (page 3)")
-                    })
-                    .catch(() => {
-                        console.log("OH NO, ERROR! (page 2)")
-                    })
-            })
-            .catch(() => {
-                console.log("OH NO, ERROR! (page 2)")
-            })
+// Promises Requests
+const fakeRequestPromise = (url) => {
+    return new Promise((resolve, reject) => {
+        const delay = Math.floor(Math.random() * 4500) + 500
+        setTimeout(() => {
+            if (delay > 4000) {
+                reject('Connection Timeout :(')
+            } else {
+                resolve(`Here is your fake data from ${url}`)
+            }
+        }, delay)
     })
-    .catch(() => {
-        console.log("OH NO, ERROR! (page 1)")
+}
+
+// const request = fakeRequestPromise('yelp.com/api/coffee/page1'); // It's not necessary to put in a variable
+// request
+//     .then(() => {
+//         console.log("IT WORKED!!!! (page 1)")
+//         fakeRequestPromise('yelp.com/api/coffee /page2')
+//             .then(() => {
+//                 console.log("IT WORKED!! (page 2)")
+//                 fakeRequestPromise('yelp.com/api/coffee/page3')
+//                     .then(() => {
+//                         console.log("IT WORKED!! (page 3)")
+//                     })
+//                     .catch(() => {
+//                         console.log("OH NO, ERROR! (page 2)")
+//                     })
+//             })
+//             .catch(() => {
+//                 console.log("OH NO, ERROR! (page 2)")
+//             })
+//     })
+//     .catch(() => {
+//         console.log("OH NO, ERROR! (page 1)")
+//     })
+
+fakeRequestPromise('yelp.com/api/coffee/page1')
+    .then((data) => {
+        console.log("IT WORKED! (page 1)")
+        console.log(data)
+        return fakeRequestPromise('yelp.com/api/cofee/page2')
+    })
+    .then((data) => {
+        console.log("IT WORKED! (page 2)")
+        console.log(data)
+        return fakeRequestPromise('yelp.com/api/coffee/page3')
+    })
+    .then((data) => {
+        console.log("IT WORKED! (page 3)")
+        console.log(data)
+    })
+    .catch((err) => {
+        console.log("OH NO, A REQUEST FAILED!")
+        console.log(err)
     })
