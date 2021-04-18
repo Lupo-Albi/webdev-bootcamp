@@ -26,7 +26,6 @@ delayedColorChange('olive', 1000, () => {
         delayedColorChange('red', 1000, () => {
             delayedColorChange('green', 1000, () => {
                 delayedColorChange('blue', 1000, () => {
-
                 })
             })
         })
