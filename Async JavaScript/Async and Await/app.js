@@ -80,8 +80,8 @@ const fakeRequest = (url) => {
     })
 }
 
-async function makeTwoRequest(){
-    try{
+async function makeTwoRequest() {
+    try {
         let data1 = await fakeRequest('/page1');
         console.log(data1);
         let data2 = await fakeRequest('/page2');
