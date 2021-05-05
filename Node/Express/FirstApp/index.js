@@ -29,7 +29,7 @@ app.get('/r/:subreddit', (req, res) => {
 app.get('/r/:subreddit/:postId', (req, res) => {
     // console.log(req.params);
     const { subreddit, postId } = req.params;
-    res.send(`<h1>Viewing Post ID: ${postId} on the subreddit ${subreddit}`);
+    res.send(`<h1>Viewing Post ID: ${postId} on the ${subreddit} subreddit `);
 })
 
 app.post('/cats', (req, res) => {
@@ -44,6 +44,15 @@ app.get('/cats', (req, res) => {
 app.get('/dogs', (req, res) => {
     res.send('WOOF!');
 })
+
+app.get('/search', (req, res) => {
+    // console.log(req.query);
+    const { q } = req.query;
+    if(!q) {
+        res.send("NOTHING FOUND IF NOTHING SEARCHED");
+    }
+    res.send(`<h1> Search results for: ${q}</h1>`);
+});
 
 // Don't put that first
 app.get('*', (req, res) => {
