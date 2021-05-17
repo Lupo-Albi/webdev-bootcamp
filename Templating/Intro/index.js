@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path'); // Node built-in module
+const redditData = require('./data.json');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Joins the path directory for this file with the folder /views, so we can run the app wherever we want in our pc
@@ -22,7 +23,12 @@ app.get('/cats', (req, res) => {
 
 app.get('/:subreddit', (req, res) => {
 	const { subreddit } = req.params;
-	res.render('subreddit', { subreddit });
+	const data = redditData[subreddit];
+	if (data) {
+		res.render('subreddit', { ...data });
+	} else {
+		res.render('notfound', { subreddit });
+	}
 });
 
 app.listen(3000, () => {
