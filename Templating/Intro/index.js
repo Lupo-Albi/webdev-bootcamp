@@ -3,6 +3,9 @@ const app = express();
 const path = require('path'); // Node built-in module
 const redditData = require('./data.json');
 
+// Static Assets
+app.use(express.static(path.join(__dirname, 'public'))); // Takes the absolute path to index.js file and adding on public so we can access the files wherever we want
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Joins the path directory for this file with the folder /views, so we can run the app wherever we want in our pc
 
