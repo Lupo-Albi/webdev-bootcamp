@@ -9,15 +9,15 @@ app.get('/', (req, res) => {
 	res.render('home'); // file extension is optional if the engine is set. render assumes the views folder already exists in the folder we are, so we don't need to write the relative path, just the file name
 });
 
-app.get('/:subreddit', (req, res) => {
-	const { subreddit } = req.params;
-	res.render('subreddit', { subreddit });
-});
-
 app.get('/rand', (req, res) => {
 	const num = Math.floor(Math.random() * 10) + 1;
 	res.render('random', { rand: num });
 	// { num } == { num: num }
+});
+
+app.get('/:subreddit', (req, res) => {
+	const { subreddit } = req.params;
+	res.render('subreddit', { subreddit });
 });
 
 app.listen(3000, () => {
