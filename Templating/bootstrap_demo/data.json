@@ -1,6 +1,6 @@
 {
     "soccer": {
-        "name": "Soccer",
+        "title": "Soccer",
         "subscribers": 800000,
         "description": "The football subreddit. News, results and discussion about the beautiful game.",
         "posts": [
@@ -19,7 +19,7 @@
         ]
     },
     "chickens": {
-        "name": "Chickens",
+        "title": "Chickens",
         "subscribers": 23956,
         "description": "A place to post your photos, video and questions about chickens!",
         "posts": [
@@ -40,7 +40,7 @@
         ]
     },
     "mightyharvest": {
-        "name": "Mighty Harvest",
+        "title": "Mighty Harvest",
         "subscribers": 44002,
         "description": "Feeding many villages and village idiots for 10s of days.",
         "posts": [
