@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
 const path = require('path');
 const { v4: uuid } = require('uuid');
 
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.json()); // for parsing application/json
+app.use(methodOverride('_method'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -45,6 +47,12 @@ app.get('/comments/:id', (req, res) => {
 	const { id } = req.params;
 	const comment = comments.find((c) => c.id === id);
 	res.render('comments/show', { comment });
+});
+
+app.get('/comments/:id/edit', (req, res) => {
+	const { id } = req.params;
+	const comment = comments.find((c) => c.id === id);
+	res.render('comments/edit', { comment });
 });
 
 app.patch('/comments/:id', (req, res) => {
