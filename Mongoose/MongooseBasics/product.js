@@ -42,8 +42,8 @@ const productSchema = new Schema({
 	}
 });
 
-// Instance x Class Methods
-// Instance
+// Instance x Static Methods
+// Instance Method (operata on individual instances of a model)
 productSchema.methods.greet = function() {
 	// You wanna use function expression and not arrow function because the value of this changes
 	console.log('Helloo!!! Hi!!! Howdy!!!');
@@ -62,6 +62,12 @@ productSchema.methods.addCategory = function(newCat) {
 
 const Product = mongoose.model('Product', productSchema);
 
+// Static Method (fancy way to CRUD) - they are created on top of existing methods (.find, .update)
+// Keyword this will refer to the model itself, not individual instances
+productSchema.statics.fireSale = function() {
+	return this.updateMany({}, { onSale: true, price: 0 });
+};
+
 const findProduct = async () => {
 	const foundProduct = await Product.findOne({ name: 'Bike Helmet' });
 	console.log(foundProduct);
@@ -71,6 +77,8 @@ const findProduct = async () => {
 	await foundProduct.addCategory('Outdoors');
 	console.log(foundProduct);
 };
+
+Product.fireSale().then((res) => console.log(res));
 
 findProduct();
 
