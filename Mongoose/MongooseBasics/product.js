@@ -42,7 +42,37 @@ const productSchema = new Schema({
 	}
 });
 
+// Instance x Class Methods
+// Instance
+productSchema.methods.greet = function() {
+	// You wanna use function expression and not arrow function because the value of this changes
+	console.log('Helloo!!! Hi!!! Howdy!!!');
+	console.log(`- from ${this.name}`);
+};
+
+productSchema.methods.toggleOnSale = function() {
+	this.OnSale = !this.OnSale;
+	return this.save();
+};
+
+productSchema.methods.addCategory = function(newCat) {
+	this.categories.push(newCat);
+	return this.save();
+};
+
 const Product = mongoose.model('Product', productSchema);
+
+const findProduct = async () => {
+	const foundProduct = await Product.findOne({ name: 'Bike Helmet' });
+	console.log(foundProduct);
+	await foundProduct.toggleOnSale();
+	foundProduct.greet();
+	console.log(foundProduct);
+	await foundProduct.addCategory('Outdoors');
+	console.log(foundProduct);
+};
+
+findProduct();
 
 // Use to add bikes
 const bike = new Product({ name: 'Cycling Jersey', price: 28.5, categories: [ 'Cycling' ], size: 'M' });
