@@ -26,4 +26,14 @@ personSchema
 		this.last = v.substr(v.indexOf(' ') + 1);
 	});
 
+// Middleware: code that runs before or after something happens (pre or post hook)
+personSchema.pre('save', async function() {
+	this.first = 'YO';
+	this.last = 'MAMA';
+	console.log('About to save!!');
+});
+personSchema.post('save', async function() {
+	console.log('Just saved!!');
+});
+
 const Person = mongoose.model('Person', personSchema);
