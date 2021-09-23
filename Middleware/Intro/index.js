@@ -4,9 +4,15 @@ const morgan = require('morgan');
 
 app.use(morgan('tiny'));
 
+// Order matters here, if I put after the route handler, the middleware will run after
 app.use((req, res, next) => {
     req.requestTime = Date.now();
     console.log(req.method, req.path);
+    next();
+});
+
+app.use('/dogs', (req, res, next) => {
+    console.log('I love dogs!');
     next();
 })
 
@@ -34,6 +40,10 @@ app.get('/dogs', (req, res) => {
     console.log(`REQUEST DATE: ${req.requestTime}`);
     res.send('Woof woof!');
 });
+
+app.use((req, res) => {
+    res.status(404).send('NOT FOUND!');
+})
 
 app.listen(3000,() => {
     console.log('App is running on localhost:3000')
