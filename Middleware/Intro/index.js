@@ -6,15 +6,15 @@ app.use(morgan('tiny'));
 
 // Order matters here, if I put after the route handler, the middleware will run after
 app.use((req, res, next) => {
-    req.requestTime = Date.now();
-    console.log(req.method, req.path);
-    next();
+	req.requestTime = Date.now();
+	console.log(req.method, req.path);
+	next();
 });
 
 app.use('/dogs', (req, res, next) => {
-    console.log('I love dogs!');
-    next();
-})
+	console.log('I love dogs!');
+	next();
+});
 
 // app.use((req, res, next) => {
 //     console.log('My first middleware');
@@ -30,21 +30,32 @@ app.use('/dogs', (req, res, next) => {
 //     return next();
 // })
 
-
 app.get('/', (req, res) => {
-    console.log(`REQUEST DATE: ${req.requestTime}`);
-    res.send('Home Page!');
+	console.log(`REQUEST DATE: ${req.requestTime}`);
+	res.send('Home Page!');
 });
 
 app.get('/dogs', (req, res) => {
-    console.log(`REQUEST DATE: ${req.requestTime}`);
-    res.send('Woof woof!');
+	console.log(`REQUEST DATE: ${req.requestTime}`);
+	res.send('Woof woof!');
+});
+
+app.use((req, res, next) => {
+	const { password } = req.query;
+	if (password === 'chickennugget') {
+		next();
+	}
+	res.send('SORRY YOU NEED A PASSWORD!!!');
+});
+
+app.get('/secret', (req, res) => {
+	res.send("MY SECRET IS: Sometimes I wear headphones in public so I don't talk to anyone");
 });
 
 app.use((req, res) => {
-    res.status(404).send('NOT FOUND!');
-})
+	res.status(404).send('NOT FOUND!');
+});
 
-app.listen(3000,() => {
-    console.log('App is running on localhost:3000')
+app.listen(3000, () => {
+	console.log('App is running on localhost:3000');
 });
