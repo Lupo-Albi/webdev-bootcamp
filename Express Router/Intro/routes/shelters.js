@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-	escape.send('Creating shelter');
+	res.send('Creating shelter');
 });
 
 router.get('/:id', (req, res) => {
